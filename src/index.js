@@ -1,3 +1,7 @@
+// Required for Material Design Lite
+import 'react-mdl/extra/material.css'
+import 'react-mdl/extra/material.js'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'

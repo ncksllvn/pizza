@@ -5,8 +5,9 @@ import App from '../components/app'
 
 function mapStateToProps(state, ownProps){
     return {
-        isInitializing: state.cart.length == 0,
-        cart: state.cart
+        isInitializing: state.menu.length == 0,
+        cart: state.cart,
+        menu: state.menu
     }
 }
 

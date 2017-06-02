@@ -3,7 +3,7 @@ import * as actions from '../actions'
 
 const initialState = {
     menu: [],
-    cart: {}
+    cart: []
 }
 
 function menu(state=initialState.menu, action){
