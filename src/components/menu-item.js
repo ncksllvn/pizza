@@ -31,6 +31,7 @@ export default class MenuItem extends Component {
     addToCart(){
         this.props.addToCart({
             size: this.props.pizza.name,
+            basePrice: this.props.pizza.basePrice,
             toppings: this.state.toppings
         })
     }

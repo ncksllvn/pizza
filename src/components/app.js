@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Spinner, Navigation, Header, Layout, Content, Badge, Icon} from 'react-mdl'
 import Menu from './menu'
+import Cart from '../containers/cart'
 
 export default class App extends Component {
 
@@ -15,10 +16,18 @@ export default class App extends Component {
         return this.props.getMenu()
     }
 
+    // If the cart has increased in size, then the user just added a pizza.
+    // We redirect to the cart in that case.
+    componentWillReceiveProps(nextProps){
+        if (this.props.cart.length < nextProps.cart.length){
+            this.setState({ page: 'cart' })
+        }
+    }
+
     getPage(){
         switch (this.state.page){
             case 'cart':
-                return <h2>Cart</h2>
+                return <Cart/>
             case 'home':
             default:
                 return <Menu menu={this.props.menu}/>
