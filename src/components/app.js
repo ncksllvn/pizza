@@ -27,7 +27,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <div style={{height: '300px', position: 'relative'}}>
+            <div>
                 <Layout fixedHeader>
                     <Header title={<span><i className="material-icons">local_pizza</i> Pizza Palace</span>}>
                         <Navigation>
@@ -40,9 +40,7 @@ export default class App extends Component {
                         </Navigation>
                     </Header>
                     <Content>
-                        <div className="mdl-typography--text-center">
-                            {this.props.isInitializing ? <Spinner/> : this.getPage()}
-                        </div>
+                        {this.props.isInitializing ? <Spinner/> : this.getPage()}
                     </Content>
                 </Layout>
             </div>

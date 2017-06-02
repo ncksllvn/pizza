@@ -18,6 +18,13 @@ function menu(state=initialState.menu, action){
 
 function cart(state=initialState.cart, action){
     switch (action.type){
+
+        case actions.ADD_PIZZA:
+            return state.concat([action.pizza])
+
+        case actions.REMOVE_PIZZA:
+            return state.filter(p => p != action.pizza)
+
         default:
             return state
     }

@@ -1,4 +1,6 @@
 export const RECEIVE_MENU = 'RECEIVE_MENU'
+export const ADD_PIZZA = 'ADD_PIZZA'
+export const REMOVE_PIZZA = 'REMOVE_PIZZA'
 
 export function getMenu(){
     return function(dispatch, getState){
@@ -8,9 +10,10 @@ export function getMenu(){
                 pizzaSizes {
                     name
                     maxToppings
-                    basePrice,
+                    basePrice
                     toppings {
-                    topping {
+                        defaultSelected
+                        topping {
                             name
                             price
                         }
@@ -26,4 +29,12 @@ export function getMenu(){
                     .then(json => dispatch({ type: RECEIVE_MENU, menu: json.data.pizzaSizes }))
 
     }
+}
+
+export function addPizza(pizza){
+    return { type: ADD_PIZZA, pizza }
+}
+
+export function removePizza(pizza){
+    return { type: REMOVE_PIZZA, pizza }
 }
