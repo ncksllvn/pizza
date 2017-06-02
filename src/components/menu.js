@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
-import {Spinner, Navigation, Header, Layout, Content} from 'react-mdl'
+import {Tabs, Tab} from 'react-mdl'
+import MenuItem from './menu-item'
 
 export default class Menu extends Component {
 
+    constructor(props){
+        super(props)
+        this.state = { tabIndex: 0 }
+    }
+
     render() {
         return (
-            <div>
-                <h2>Create your pizza</h2>
+            <div style={{ maxWidth: '70%', margin: '0 auto' }}>
+                <h2>Create a pizza</h2>
+                <Tabs onChange={tabIndex => this.setState({tabIndex})}>
+                    {this.props.menu.map((size, index) => <Tab key={size.name}>{size.name}</Tab>)}
+                </Tabs>
+                <MenuItem pizza={this.props.menu[this.state.tabIndex]}/>
             </div>
         )
     }

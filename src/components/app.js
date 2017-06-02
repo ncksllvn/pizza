@@ -15,6 +15,16 @@ export default class App extends Component {
         return this.props.getMenu()
     }
 
+    getPage(){
+        switch (this.state.page){
+            case 'cart':
+                return <h2>Cart</h2>
+            case 'home':
+            default:
+                return <Menu menu={this.props.menu}/>
+        }
+    }
+
     render() {
         return (
             <div style={{height: '300px', position: 'relative'}}>
@@ -31,7 +41,7 @@ export default class App extends Component {
                     </Header>
                     <Content>
                         <div className="mdl-typography--text-center">
-                            {this.props.isInitializing ? <Spinner/> : <Menu menu={this.props.menu}/>}
+                            {this.props.isInitializing ? <Spinner/> : this.getPage()}
                         </div>
                     </Content>
                 </Layout>
